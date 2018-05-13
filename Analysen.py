@@ -79,7 +79,35 @@ def numeric_value(txt): #_{
     return v
 #_}        
 
-def tests():
+def words_and_letters_in_book(b): #_{
+   cnt_words   = 0
+   cnt_letters = 0
+
+   letter_counter = {}
+
+   for r in wlc.execute('select word from word_v where b = ?', (b,)):
+
+       word = replace_nikkud(r[0])
+       if len(word) and word != 'פ' and word != 'ס':
+           cnt_words   += 1
+           cnt_letters += len(word)
+
+           for c in word:
+               letter_counter[c] = letter_counter.get(c, 0) + 1
+
+   print('{:s} has {:d} words and {:d} letters.'.format(b, cnt_words, cnt_letters))
+   for letter in sorted(letter_counter):
+       print('  {:s}: {:5d}'.format(letter, letter_counter[letter]))
+#_}  
+
+def words_and_letters_in_books():
+    words_and_letters_in_book('1mo')
+    words_and_letters_in_book('2mo')
+    words_and_letters_in_book('3mo')
+    words_and_letters_in_book('4mo')
+    words_and_letters_in_book('5mo')
+
+def tests(): #_{
 
     def test_1mo_1_1(): #_{
 
@@ -162,5 +190,8 @@ def tests():
     letter_86()
     val_600000()
 
+#_}
+
 init()
 tests()
+words_and_letters_in_books()
