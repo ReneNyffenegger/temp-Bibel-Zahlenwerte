@@ -122,9 +122,45 @@ def tests():
 
                letter_no += len(word)
             
+    #_}
+
+    def val_600000(): #_{
+#       last_v = 1
+        tot_val = 0
+        for r in wlc.execute('select word, c, v from word_v where b = "1mo" order by order_'):
+
+            word = replace_nikkud(r[0])
+            if len(word) and word != 'פ' and word != 'ס':
+
+#              if r[2] != last_v:
+#                 print('')
+#                 last_v = r[2]
+
+               tot_val += numeric_value(word)
+
+#              print("{:6d} {:2d}:{:2d} {:s}".format(tot_val, r[1], r[2], word))
+
+               if tot_val > 600000:
+                  raise Exception('tot_vat {:d} > 600000'.format(tot_val))
+
+               if tot_val == 600000:
+                  if r[1] != 7:
+                     raise Exception('chapter: {:d}'.format(r[1]))
+
+                  if r[2] != 24:
+                     raise Exception('verse: {:d}'.format(r[2]))
+
+                  if word != 'יום':
+                     raise Exception('word is not jam')
+
+                  print('ok tot val 600000')
+                  return
+                   
+    #_}
 
     test_1mo_1_1()
     letter_86()
+    val_600000()
 
 init()
 tests()
