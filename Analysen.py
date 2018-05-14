@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # vi: foldmethod=marker foldmarker=_{,_}
+# -*- coding: utf-8 -*-
 
 import sqlite3
 import os
@@ -57,48 +58,59 @@ def init_num_values(): #_{
        'ק' : 100,
        'ר' : 200,
        'ש' : 300,
-       'ת' : 400 ,
+       'ת' : 400,
        'Α' :   1,
+       'Ἀ' :   1,
+       'α' :   1,
+       'ἀ' :   1,
        'Β' :   2,
+       'β' :   2,
        'Γ' :   3,
+       'γ' :   3,
        'Δ' :   4,
+       'δ' :   4,
        'Ε' :   5,
+       'ε' :   5,
+       'ἐ' :   5,
        'Ζ' :   7,
+       'ζ' :   7,
        'Η' :   8,
+       'η' :   8,
+       'ή' :   8,
+       'ἡ' :   8,
+       'θ' :   9,
        'Θ' :   9,
        'Ι' :  10,
+       'ι' :  10,
+       'ΐ' :  10,
        'Κ' :  20,
+       'κ' :  20,
        'Λ' :  30,
+       'λ' :  30,
        'Μ' :  40,
+       'μ' :  40,
        'Ν' :  50,
+       'ν' :  50,
        'Ξ' :  60,
+       'ξ' :  60,
        'Ο' :  70,
+       'ο' :  70,
        'Π' :  80,
+       'π' :  80,
+       'Ϟ' :  90,
+       'ϟ' :  90,
        'Ρ' : 100,
+       'Ῥ' : 100,
+       'ρ' : 100,
        'Σ' : 200,
        'Τ' : 300,
        'Υ' : 400,
+       'ϋ' : 400,
+       'ῦ' : 400,
        'Φ' : 500,
        'Χ' : 600,
        'Ψ' : 700,
        'Ω' : 800,
-       'α' :   1,
-       'β' :   2,
-       'γ' :   3,
-       'δ' :   4,
-       'ε' :   5,
-       'ζ' :   7,
-       'η' :   8,
-       'θ' :   9,
-       'ι' :  10,
-       'κ' :  20,
-       'λ' :  30,
-       'μ' :  40,
-       'ν' :  50,
-       'ξ' :  60,
-       'ο' :  70,
-       'π' :  80,
-       'ρ' : 100,
        'ς' : 200,
        'σ' : 200,
        'τ' : 300,
@@ -106,28 +118,21 @@ def init_num_values(): #_{
        'φ' : 500,
        'χ' : 600,
        'ψ' : 700,
+       'Ὧ' : 800,
        'ω' : 800,
-       'ϋ' : 400,
-       'Ϟ' :  90,
-       'ϟ' :  90,
+       'ῶ' : 800,
+       'ώ' : 800,
        'Ϡ' : 900,
        'ϡ' : 900,
-       'ἀ' :   1,
-       'ἐ' :   5,
-       'ἡ' :   8,
        'ἱ' :  10,
        'Ἰ' :  10,
-       'Ὧ' : 800,
        'ὰ' :   1,
        'ά' :   1,
        'ί' :  10,
        'ὸ' :  70,
-       'ώ' : 800,
        'ᾶ' :   1,
        'ῆ' :   8,
        'ῖ' :  10,
-       'ῦ' : 400,
-       'ῶ' : 800,
     }
 #_}
 
@@ -147,10 +152,23 @@ def numeric_value(txt): #_{
 
     v = 0
     for c in txt:
-        v = v + num_values[c]
+        try:
+           v = v + num_values[c]
+        except KeyError:
+           print('KeyError in word {:s}, character {:s}'.format(txt, c))
+           raise
 
     return v
 #_}        
+
+def numeric_value_translation(word_de, lang): #_{
+
+    for r in wrd.execute('select word from strongs where lang = ? and word_de = ?', (lang, word_de)):
+        word = replace_nikkud(r[0])
+        return numeric_value(word)
+
+
+#_}
 
 def words_and_letters_in_book(b): #_{
    cnt_words   = 0
@@ -181,14 +199,38 @@ def words_and_letters_in_books(): #_{
     words_and_letters_in_book('5mo')
 #_}
 
-def numeric_value_translation(word_de, lang): #_{
+def twelve_tribes(): #_{
+    tot_val = 0
+    for name in ['Juda', 'Ruben', 'Gad', 'Asser', 'Naphtali', 'Manasse', 'Simeon', 'Levi', 'Issaschar', 'Sebulon', 'Joseph', 'Benjamin']: # Revelation 7:5 ff
+    # 'Ruben', 'Simeon', 'Levi', 'Juda', 'Dan', 'Naphtali', 'Gad', 'Asser', 'Issaschar', 'Sebulon', 'Joseph', 'Benjamin'
+        val = numeric_value_translation(name, 'G')
+        tot_val += val
+        print('{:10s} {:4d}'.format(name, val))
 
-    for r in wrd.execute('select word from strongs where lang = ? and word_de = ?', (lang, word_de)):
-        word = replace_nikkud(r[0])
-        return numeric_value(word)
+    tot_val += 200 # Add missing σ in Ἰσσαχάρ (?)
+    print('{:10s} {:4d}'.format('Total', tot_val))
 
+    print('')
+
+    tot_val = 0
+    for name in ['Ruben', 'Simeon', 'Levi', 'Juda', 'Dan', 'Naphtali', 'Gad', 'Asser', 'Issaschar', 'Sebulon', 'Joseph', 'Benjamin']: # Direct sons
+        val = numeric_value_translation(name, 'H')
+        tot_val += val
+        print('{:10s} {:4d}'.format(name, val))
+    print('{:10s} {:4d}   {:s}  {:4d}'.format('Total', tot_val, '= 37*86', 37*86))
+
+    print('')
+
+    tot_val = 0
+    for name in ['Ruben', 'Simeon', 'Juda', 'Dan', 'Naphtali', 'Gad', 'Asser', 'Issaschar', 'Sebulon', 'Benjamin', 'Ephraim', 'Manasse']: # Without Levi and Josef, but with Ephraim and Manassse 
+        val = numeric_value_translation(name, 'H')
+        tot_val += val
+        print('{:10s} {:4d}'.format(name, val))
+    tot_val -= 6 # The first occurence of Sebulon is spelled זְבֻלֽוּן (missing wav). Subtracting it.
+    print('{:10s} {:4d}'.format('Total', tot_val))
 
 #_}
+
 
 def tests(): #_{
 
@@ -294,5 +336,6 @@ def tests(): #_{
 #_}
 
 init()
-tests()
+# tests()
 # words_and_letters_in_books()
+twelve_tribes()
