@@ -170,6 +170,21 @@ def numeric_value_translation(word_de, lang): #_{
 
 #_}
 
+def numeric_value_verse(db, b, c, v): #_{
+    val_tot = 0
+    for r in db.execute('select word from word_v where b = ? and c = ? and v = ? order by order_', (b, c, v)):
+
+        word = replace_nikkud(r[0])
+
+        if len(word) and word != 'פ' and word != 'ס':
+           val_word = numeric_value(word)
+#          print(' {:d} : {:4d}'.format(len(word), val_word))
+           val_tot = val_tot + val_word
+
+    return val_tot
+
+#_}
+
 def words_and_letters_in_book(b): #_{
    cnt_words   = 0
    cnt_letters = 0
@@ -231,26 +246,23 @@ def twelve_tribes(): #_{
 
 #_}
 
+def n2701(): #_{
+
+    val_1mo_8_14 = numeric_value_verse(wlc, '1mo', 8, 14)
+    print('Value of 1. Mo 8:14 is {:d}'.format(val_1mo_8_14))
+
+#_}
 
 def tests(): #_{
 
     def test_1mo_1_1(): #_{
 
-        val_tot = 0
-        for r in wlc.execute('select word from word_v where b = "1mo" and c = "1" and v = "1" order by order_'):
+        val_1mo_1_1 = numeric_value_verse(wlc, '1mo', 1, 1)
 
-            word = replace_nikkud(r[0])
+        if val_1mo_1_1 != 2701:
+           raise Exception('1. Mo 1:1, val_tot is {:d}'.format(val_1mo_1_1))
 
-
-            if len(word):
-               val_word = numeric_value(word)
-        #      print(' {:d} : {:4d}'.format(len(word), val_word))
-               val_tot = val_tot + val_word
-
-        if val_tot != 2701:
-           raise Exception('1. Mo 1:1, val_tot is {:d}'.format(val_tot))
-
-        print('ok Total value 1. Mo 1:1 is {:d}'.format(val_tot))
+        print('ok Total value 1. Mo 1:1 is {:d}'.format(val_1mo_1_1))
 
     #_}
 
@@ -336,6 +348,7 @@ def tests(): #_{
 #_}
 
 init()
-# tests()
+tests()
 # words_and_letters_in_books()
-twelve_tribes()
+# twelve_tribes()
+n2701()
