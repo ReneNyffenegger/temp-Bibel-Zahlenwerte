@@ -271,7 +271,7 @@ def tests(): #_{
         letter_no = 1
         for r in wlc.execute('select word from word_v where b = "1mo" order by order_'):
             word = replace_nikkud(r[0])
-            if len(word):
+            if len(word) and word != 'פ' and word != 'ס':
 
             #  print("{:2d} {:s}".format(letter_no, word))
 
