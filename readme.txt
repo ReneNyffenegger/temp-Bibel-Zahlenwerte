@@ -28,7 +28,15 @@ Exo 24:3 = 4676 And Moses came and told the people all the words of the LORD, an
 
 }
 
-{
+{ Esra 2 / 153 Fische etc 
+
+  https://twitter.com/JamesBejon/status/1600205916888272897
+
+  Und diese (Esr 1:1 = 42)
+
+}
+
+{ Links
 
   https://books.google.ch/books?id=9ZPH0hgZBkwC S. 244
 
@@ -48,5 +56,10 @@ Exo 24:3 = 4676 And Moses came and told the people all the words of the LORD, an
 
   https://haimshore.blog/category/list-of-posts/
 
+
+}
+{ Names
+
+  Dimitry Sergeyevich Silyukov
 
 }
