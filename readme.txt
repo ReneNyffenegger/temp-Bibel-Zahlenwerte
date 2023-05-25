@@ -81,6 +81,42 @@ Exo 24:3 = 4676 And Moses came and told the people all the words of the LORD, an
 
 }
 
+{ 22 Geschaffene Dinge
+
+      https://www.youtube.com/watch?v=OVczu3xnL_o
+
+  Himmel        שָּׁמַ֖יִם
+  Erde          אָֽרֶץ
+  Finsternis    חֹ֖שֶׁךְ
+  Tiefe          תְה֑וֹם
+  Licht         א֑וֹר
+# Tag           י֔וֹם       genannt, nicht erschaffen
+# Nacht         לָ֑יְלָה
+  Rakiah        רָקִ֖יעַ  
+  das Trockene  יַּבָּשָׁ֑ה
+  Gras           דֶּ֔שֶׁא
+  Kraut          עֵ֚שֶׂב
+  Fruchtbaum     עֵ֣ץ פְּרִ֞י
+  zwei Lichter   שְׁנֵ֥י הַ/מְּאֹרֹ֖ת  -- הַ/מָּא֤וֹר  הַ/גָּדֹל֙  -- הַ/מָּא֤וֹר הַ/קָּטֹן֙
+  Sterne         כּוֹכָבִֽים
+  Seeungeheuer   תַּנִּינִ֖ם
+  Sea Creatures                   ?????
+  Vögel           ע֤וֹף
+  Wild Beasts                     ???
+  Vieh            בְּהֵמָ֥ה
+  Gewürm          רֶ֛מֶשׂ
+  Mensch
+
+  22 Patriarchen
+
+  22 Könige (von Saul an und  nach Salomo
+    a) Nordreich
+    b) Südreich )
+  
+  22 Bowls in der Menorah
+
+}
+
 { Esra 2 / 153 Fische etc 
 
   https://twitter.com/JamesBejon/status/1600205916888272897
