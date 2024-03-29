@@ -124,6 +124,25 @@ Exo 24:3 = 4676 And Moses came and told the people all the words of the LORD, an
   Und diese (Esr 1:1 = 42)
 
 }
+{ 37
+
+  The most random two-digit number is 37, When groups of people are polled to pick a “random number between 1 and 100”, the most commonly chosen number is 37.
+
+  http://www.catb.org/jargon/html/R/random-numbers.html
+      
+     The most random two-digit number is 37, When groups of people are polled to pick a “random number between 1 and 100”, the most commonly chosen number is 37.
+     Possibly the «blue seven» phenomen for two digit numbers.
+
+
+   37 Miracles in the Bible? - http://thirty-seven.org/notes/bible.html
+
+   In the Bible, Psalm 37 is one of the few that are acrostic.
+
+   37 is the first irregular prime number - http://thirty-seven.org/notes/fermat.html - https://math.dartmouth.edu/~carlp/irreg.pdf
+
+   There are 37 genes in the mitochondrial genome. - http://thirty-seven.org/notes/mitochondria.html
+
+}
 
 { Links
 
