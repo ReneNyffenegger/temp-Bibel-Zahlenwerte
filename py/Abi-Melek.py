@@ -3,3 +3,4 @@
 import gematria
 
 gematria.value('אֲבִימֶֽלֶךְ')
+gematria.value('גַּ֤עַל')    # Gal
