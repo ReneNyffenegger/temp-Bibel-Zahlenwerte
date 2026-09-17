@@ -174,4 +174,4 @@ Exo 24:3 = 4676 And Moses came and told the people all the words of the LORD, an
 }
 ```
 
-[These are all prime numbers](137-Primzahlen.jpg], see [this X post](https://x.com/Math_files/status/2100505267108794552), but see also [this image](FezghtZXkAEVECW.jpg).
+[These are all prime numbers](137-Primzahlen.jpg), see [this X post](https://x.com/Math_files/status/2100505267108794552), but see also [this image](FezghtZXkAEVECW.jpg).
