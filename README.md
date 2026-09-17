@@ -1,3 +1,4 @@
+```
 https://dafyomireview.com/torah_numerology.php?d=3
 
 https://www.youtube.com/watch?v=ikGLJHNcJLo
@@ -171,3 +172,6 @@ Exo 24:3 = 4676 And Moses came and told the people all the words of the LORD, an
   Dimitry Sergeyevich Silyukov
 
 }
+```
+
+[These are all prime numbers](137-Primzahlen.jpg], see [this X post](https://x.com/Math_files/status/2100505267108794552), but see also [this image](FezghtZXkAEVECW.jpg).
